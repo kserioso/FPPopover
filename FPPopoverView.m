@@ -10,7 +10,7 @@
 #import "FPPopoverView.h"
 #import "ARCMacros.h"
 
-#define FP_POPOVER_ARROW_HEIGHT 20.0
+#define FP_POPOVER_ARROW_HEIGHT 10.0
 #define FP_POPOVER_ARROW_BASE 20.0
 #define FP_POPOVER_RADIUS 10.0
 
@@ -375,7 +375,7 @@
     if(_arrowDirection == FPPopoverArrowDirectionUp || _arrowDirection == FPPopoverNoArrow)
     {
         start = CGPointMake(self.bounds.size.width/2.0, 0);
-        end = CGPointMake(self.bounds.size.width/2.0,40);
+        end = CGPointMake(self.bounds.size.width/2.0,2);
     }
     else 
     {
@@ -415,8 +415,8 @@
     //internal border
     CGContextBeginPath(ctx);
     CGContextAddPath(ctx, contentPath);
-    CGContextSetRGBStrokeColor(ctx, 0.7, 0.7, 0.7, 1.0);
-    CGContextSetLineWidth(ctx, 1);
+    CGContextSetRGBStrokeColor(ctx, 0.0, 0.0, 0.0, 1.0);
+    CGContextSetLineWidth(ctx, 0.5);
     CGContextSetLineCap(ctx,kCGLineCapRound);
     CGContextSetLineJoin(ctx, kCGLineJoinRound);
     CGContextStrokePath(ctx);
@@ -426,8 +426,8 @@
     CGPathRef externalBorderPath = [self newContentPathWithBorderWidth:1.0 arrowDirection:_arrowDirection];
     CGContextBeginPath(ctx);
     CGContextAddPath(ctx, externalBorderPath);
-    CGContextSetRGBStrokeColor(ctx, 0.4, 0.4, 0.4, 1.0);
-    CGContextSetLineWidth(ctx, 1);
+    CGContextSetRGBStrokeColor(ctx, 0.4, 0.4, 0.4, 0.5);
+    CGContextSetLineWidth(ctx, 2.5);
     CGContextSetLineCap(ctx,kCGLineCapRound);
     CGContextSetLineJoin(ctx, kCGLineJoinRound);
     CGContextStrokePath(ctx);
@@ -460,8 +460,8 @@
         contentRect.size = CGSizeMake(self.bounds.size.width-20, self.bounds.size.height-70);
         _titleLabel.frame = CGRectMake(10, 30, self.bounds.size.width-20, 20);    
 		if (self.title==nil || self.title.length==0) {
-			contentRect.origin = CGPointMake(10, 30);
-			contentRect.size = CGSizeMake(self.bounds.size.width-20, self.bounds.size.height-40);
+			contentRect.origin = CGPointMake(10, 20);
+			contentRect.size = CGSizeMake(self.bounds.size.width-20, self.bounds.size.height-30);
 		}
     }
     else if(_arrowDirection == FPPopoverArrowDirectionDown)

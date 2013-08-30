@@ -9,6 +9,8 @@
 
 #import "FPPopoverController.h"
 
+#import "PopGuideManager.h"
+
 //ivars
 @interface FPPopoverController()
 {
@@ -308,9 +310,16 @@
 -(void)presentPopoverFromView:(UIView*)fromView
 {
     SAFE_ARC_RELEASE(_fromView);
+    [self removePopGuideFromView:fromView];
     _fromView = SAFE_ARC_RETAIN(fromView);
     [self presentPopoverFromPoint:[self originFromView:_fromView]];
 }
+
+- (void)removePopGuideFromView:(UIView *)fromView
+{
+    [[PopGuideManager shared] removePopGuideType:PopGuideTypeTapMenu inView:fromView];
+}
+
 
 -(void)dismissPopover
 {

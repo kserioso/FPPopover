@@ -80,5 +80,7 @@ typedef void (^FPPopoverCompletion)();
 /** @brief Refresh popover **/
 -(void)setupView;
 
+//added method for efficient removing of title pop guide
+- (void)removePopGuideFromView:(UIView *)fromView;
 
 @end
