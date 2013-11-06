@@ -9,7 +9,7 @@
 
 #import "FPPopoverController.h"
 
-#import "PopGuideManager.h"
+#import "PHPopGuideManager.h"
 
 //ivars
 @interface FPPopoverController()
@@ -317,7 +317,7 @@
 
 - (void)removePopGuideFromView:(UIView *)fromView
 {
-    [[PopGuideManager shared] removePopGuideType:PopGuideTypeTapMenu inView:fromView];
+    [[PHPopGuideManager shared] removePopGuideType:PopGuideTypeTapMenu inView:fromView];
 }
 
 
